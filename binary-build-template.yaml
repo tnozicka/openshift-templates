@@ -18,8 +18,8 @@ parameters:
   description: "ImageStream created as a result of the build"
   required: true
 objects:
-- apiVersion: v1
-  kind: BuildConfig
+- kind: BuildConfig
+  apiVersion: v1
   metadata:
     labels:
       build: $OUTPUT_IMAGESTREAM
