@@ -25,15 +25,15 @@ objects:
       build: ${OUTPUT_IMAGESTREAM}
     name: ${OUTPUT_IMAGESTREAM}
   spec:
+    strategy:
+      type: Source
+      sourceStrategy:
+        from:
+          kind: DockerImage
+          name: ${BUILDER_IMAGE}
+    source:
+      type: Binary
     output:
       to:
         kind: ImageStreamTag
         name: ${OUTPUT_IMAGESTREAM}
-    source:
-      type: Binary
-    strategy:
-      sourceStrategy:
-        from:
-          kind: ImageStreamTag
-          name: ${BUILDER_IMAGE}
-      type: Source
