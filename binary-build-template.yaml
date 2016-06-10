@@ -13,10 +13,10 @@ parameters:
   displayName: "Builder Image"
   description: "Builder image which will be used as a base image"
   required: true
-- name: "OUTPUT_IMAGESTREAM"
-  displayName: "Output ImageStream"
-  description: "ImageStream created as a result of the build"
-  required: true
+#- name: "OUTPUT_IMAGESTREAM"
+#  displayName: "Output ImageStream"
+#  description: "ImageStream created as a result of the build"
+#  required: true
 - name: "OUTPUT_IMAGESTREAM_TAG"
   displayName: "Output ImageStream"
   description: "ImageStream created as a result of the build"
@@ -41,4 +41,4 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: ${OUTPUT_IMAGESTREAM}:${OUTPUT_IMAGESTREAM_TAG}
+        name: ${APP_NAME}:${OUTPUT_IMAGESTREAM_TAG}
