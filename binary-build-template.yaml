@@ -22,8 +22,8 @@ objects:
   apiVersion: v1
   metadata:
     labels:
-      build: ${OUTPUT_IMAGESTREAM}
-    name: ${OUTPUT_IMAGESTREAM}
+      build: ${APP_NAME}
+    name: ${APP_NAME}
   spec:
     strategy:
       type: Source
