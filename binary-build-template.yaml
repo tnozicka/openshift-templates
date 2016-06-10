@@ -26,9 +26,9 @@ objects:
 - kind: BuildConfig
   apiVersion: v1
   metadata:
-    labels:
-      build: ${APP_NAME}
     name: ${APP_NAME}
+    labels:
+      application: ${APP_NAME}
   spec:
     strategy:
       type: Source
@@ -42,3 +42,20 @@ objects:
       to:
         kind: ImageStreamTag
         name: ${APP_NAME}:${OUTPUT_IMAGESTREAM_TAG}
+- kind: ImageStream
+  apiVersion: v1
+  metadata:
+    name: ${APP_NAME}
+    labels:
+      application: ${APP_NAME}
+  spec:
+    tags:
+    - name: build
+    - name: stage
+      from:
+        kind: ImageStreamTag
+        name: build
+    - name: prod 
+      from:
+        kind: ImageStreamTag
+        name: build
