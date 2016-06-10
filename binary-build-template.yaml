@@ -19,23 +19,21 @@ parameters:
   required: true
 objects:
 - apiVersion: v1
-  items:
-    - apiVersion: v1
-      kind: BuildConfig
-      metadata:
-        labels:
-          build: $OUTPUT_IMAGESTREAM
+  kind: BuildConfig
+  metadata:
+    labels:
+      build: $OUTPUT_IMAGESTREAM
+    name: $OUTPUT_IMAGESTREAM
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
         name: $OUTPUT_IMAGESTREAM
-      spec:
-        output:
-          to:
-            kind: ImageStreamTag
-            name: $OUTPUT_IMAGESTREAM
-        source:
-          type: Binary
-        strategy:
-          sourceStrategy:
-            from:
-              kind: ImageStreamTag
-              name: $BUILDER_IMAGE
-          type: Source
+    source:
+      type: Binary
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: $BUILDER_IMAGE
+      type: Source
