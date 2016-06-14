@@ -15,8 +15,8 @@ parameters:
   required: true
 - name: "OUTPUT_IMAGESTREAM_TAG"
   displayName: "Output ImageStream"
-  description: "ImageStream created as a result of the build"
-  value: "${APP_NAME}:latest"
+  description: "ImageStream created as a result of the build. (e.g. APP_NAME:latest)"
+  required: true
 
 objects:
 - kind: ImageStream
