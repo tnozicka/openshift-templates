@@ -41,7 +41,7 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: ${APP_NAME}:${OUTPUT_IMAGESTREAM_TAG}
+        name: ${OUTPUT_IMAGESTREAM_TAG}
 - kind: ImageStream
   apiVersion: v1
   metadata:
